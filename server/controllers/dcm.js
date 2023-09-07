@@ -1,10 +1,12 @@
-import User from '../models/User.js';
-export const getUser = async(req,res)=>{
-    try{
-        const id = req.params.id;
-        const user = await User.findById(id);
-        res.status(200),json(user);
-    }catch(err){
-        res.status(404).json({message: err.message});
-    }
-}
+import User from "../models/User.js";
+import asyncHandler from "express-async-handler";
+
+const getUser = asyncHandler(async (req, res) => {
+  const id = req.params.id;
+  const user = await User.findById(id);
+  res.status(200).json(user);
+});
+
+module.exports = {
+  getUser,
+};
