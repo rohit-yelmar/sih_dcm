@@ -28,6 +28,7 @@ import {
   TrendingUpOutlined,
   PieChartOutlined,
 } from "@mui/icons-material";
+import LogoutIcon from "@mui/icons-material/Logout";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import FlexBetween from "./FlexBetween";
@@ -60,12 +61,12 @@ const navItems = [
     icon: <Groups2Outlined />,
   },
   {
-    text: "SignOut",
-    icon: <HomeOutlined />,
-  },
-  {
     text: "Meetings",
     icon: <TodayOutlined />,
+  },
+  {
+    text: "Log Out",
+    icon: <LogoutIcon />,
   },
 ];
 
