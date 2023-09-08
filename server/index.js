@@ -7,6 +7,12 @@ import cors from 'cors';
 import morgan from "morgan";
 import dcmRoutes from './routes/dcm.js'
 import clientRoutes from './routes/client.js'
+import authRoutes from './routes/auth.js'
+import caseRoutes from './routes/case.js';
+import multer from "multer";
+import path from "path";
+import { fileURLToPath } from "url"; 
+import {createCase} from "./controllers/case.js"
 
 //data imports
 import User from "./models/User.js"
@@ -18,6 +24,8 @@ import {dataUser,dataProduct,dataProductStat} from "./data/index.js"
 
 dotenv.config()
 const app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 app.use(express.json())
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({policy:"cross-origin"}));
@@ -25,11 +33,28 @@ app.use(morgan("common"))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(cors());
+app.use("/assets",express.static(path.join(__dirname,'public/assets')))
+
+//File Storage 
+
+const storage = multer.diskStorage({
+    destination: function(req,file,cb){
+        cb(null,"public/assets")
+    },
+    filename: function(req,file,cb){
+        cb(null, file.originalname);
+    }
+})
+const upload = multer({storage})
+//Routes with File
+app.post("/case",upload.single("picture"),createCase)
 
 //Routes
 
 app.use("/dcm",dcmRoutes);
 app.use("/client",clientRoutes);
+app.use("/auth",authRoutes);
+app.use("/case",caseRoutes)
 
 //Mongoose Setup
 
