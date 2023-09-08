@@ -7,6 +7,8 @@ import { themeSettings } from 'theme';
 import Dashboard from 'scenes/dashboard';
 import Layout from 'scenes/layout';
 import Overview from "scenes/overview"
+import Calendar from "scenes/calendar"
+
 
 function App() {
   const mode = useSelector((state)=>state.global.mode)
@@ -21,6 +23,7 @@ function App() {
               <Route path='/' element={<Navigate to='/dashboard' replace />} />
               <Route path='/dashboard' element={<Dashboard />} />
               <Route path='/overview' element={<Overview />} />
+              <Route path='/calendar' element={<Calendar />} />
             </Route>
           </Routes>
         </ThemeProvider>
