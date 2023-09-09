@@ -54,6 +54,10 @@ const navItems = [
     {
         text:"Meetings",
         icon:<TodayOutlined />
+    },
+    {
+        text:"Text Editor",
+        icon:<TodayOutlined />
     }
 ]
 
