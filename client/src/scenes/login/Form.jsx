@@ -12,7 +12,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setLogin } from "state";
+import { setLogin,setUserId } from "state";
 import Dropzone from "react-dropzone";
 import FlexBetween from "components/FlexBetween";
 
@@ -77,7 +77,9 @@ const Form = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
     });
-    const loggedIn = await loggedInResponse.json();
+    const loggedIn = await loggedInResponse.json(); 
+    console.log("Log",loggedIn.user);
+
     onSubmitProps.resetForm();
     if (loggedIn) {
       dispatch(
@@ -85,8 +87,14 @@ const Form = () => {
           user: loggedIn.user,
           token: loggedIn.token,
         })
+        
       );
-      navigate("/");
+      dispatch(
+        setUserId({
+          userId: loggedIn.user._id,
+        })
+      )
+      navigate("/dashboard");
     }
   };
 
