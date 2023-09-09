@@ -8,6 +8,7 @@ import Dashboard from 'scenes/dashboard';
 import Layout from 'scenes/layout';
 import Overview from "scenes/overview"
 import Calendar from "scenes/calendar"
+import Login from "scenes/login"
 
 
 function App() {
@@ -24,7 +25,9 @@ function App() {
               <Route path='/dashboard' element={<Dashboard />} />
               <Route path='/overview' element={<Overview />} />
               <Route path='/calendar' element={<Calendar />} />
+              
             </Route>
+            <Route path='/login' element={<Login />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
