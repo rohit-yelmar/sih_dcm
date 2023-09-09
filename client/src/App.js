@@ -28,8 +28,8 @@ function App() {
           <Routes>
             <Route element={<Layout />}>
               <Route path='/' element={<Navigate to='/login' replace />} />
-              <Route path='/dashboard' element={isAuth ? <Dashboard /> : <Navigate to="/" /> } />
-              <Route path='/overview' element={isAuth?<Overview />:<Navigate to="/" />} />
+              <Route path='/dashboard' element={<Dashboard /> } />
+              <Route path='/overview' element={<Overview />} />
               <Route path='/calendar' element={<Calendar />} />
               <Route path='/profile' element={<Profile userId={userId} />} />
               
