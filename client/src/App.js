@@ -10,6 +10,7 @@ import Overview from "scenes/overview"
 import Calendar from "scenes/calendar"
 import Login from "scenes/login"
 import Profile from "scenes/profile"
+import Meeting from 'scenes/meetings';
 
 
 function App() {
@@ -28,9 +29,10 @@ function App() {
           <Routes>
             <Route element={<Layout />}>
               <Route path='/' element={<Navigate to='/login' replace />} />
-              <Route path='/dashboard' element={isAuth ? <Dashboard /> : <Navigate to="/" /> } />
-              <Route path='/overview' element={isAuth?<Overview />:<Navigate to="/" />} />
+              <Route path='/dashboard' element={<Dashboard /> } />
+              <Route path='/overview' element={<Overview  />} />
               <Route path='/calendar' element={<Calendar />} />
+              <Route path='/meetings' element={<Meeting />} />
               <Route path='/profile' element={<Profile userId={userId} />} />
               
             </Route>

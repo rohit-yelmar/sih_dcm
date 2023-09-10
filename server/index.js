@@ -64,7 +64,7 @@ mongoose.connect(process.env.MONGO_URL,{
     useUnifiedTopology:true,
 }).then(()=>{
     app.listen(PORT,()=>console.log(`Server Started on port:${PORT}`));
-    //User.insertMany(dataUser)
-    //Product.insertMany(dataProduct);
-    //ProductStat.insertMany(dataProductStat);
+    // User.insertMany(dataUser)
+    // Product.insertMany(dataProduct);
+    // ProductStat.insertMany(dataProductStat);
 }).catch(err=>console.log(`Server Error: ${err}`));
