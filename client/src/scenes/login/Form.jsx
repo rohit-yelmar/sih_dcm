@@ -83,7 +83,7 @@ const Form = () => {
     onSubmitProps.resetForm();
     if (loggedIn) {
       dispatch(
-        setLogin({
+        setLogin({ 
           user: loggedIn.user,
           token: loggedIn.token,
         })

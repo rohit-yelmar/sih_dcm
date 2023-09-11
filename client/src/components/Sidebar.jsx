@@ -28,7 +28,7 @@ const navItems = [
         icon:<HomeOutlined />
     },
     {
-        text:"Case Filling",
+        text:"CaseFilling",
         icon:<HomeOutlined />
     },
     {

@@ -30,7 +30,7 @@ app.use(express.json())
 app.use(helmet());
 app.use(helmet.crossOriginResourcePolicy({policy:"cross-origin"}));
 app.use(morgan("common"))
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit:'30mb',extended:true}));
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(cors());
 app.use("/assets",express.static(path.join(__dirname,'public/assets')))
@@ -47,7 +47,7 @@ const storage = multer.diskStorage({
 })
 const upload = multer({storage})
 //Routes with File
-app.post("/case",upload.single("picture"),createCase)
+app.post("/casecreate",createCase)
 
 //Routes
 

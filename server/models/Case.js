@@ -13,14 +13,14 @@ const caseSchema = mongoose.Schema({
         type:String,
         required:true,
     },
-    location: String,
-    picturePath: String,
-    issues: Number,
-    laws: Number,
-    lawType: String,
-    courtType: String,
-    petitioners:Number,
-    respondents:Number,
+    location:{type:String},
+    picturePath:{type:String},
+    issues:{type:String},
+    laws:{type:String},
+    lawType:{type:String},
+    courtType:{type:String},
+    petitioners:{type:String},
+    respondents:{type:String},
 
 })
 const Case = mongoose.model("Case",caseSchema);

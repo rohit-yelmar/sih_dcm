@@ -10,6 +10,7 @@ import Overview from "scenes/overview"
 import Calendar from "scenes/calendar"
 import Login from "scenes/login"
 import Profile from "scenes/profile"
+import CaseFilling from 'scenes/caseFilling';
 
 
 function App() {
@@ -32,6 +33,7 @@ function App() {
               <Route path='/overview' element={<Overview />} />
               <Route path='/calendar' element={<Calendar />} />
               <Route path='/profile' element={<Profile userId={userId} />} />
+              <Route path='/casefilling' element={<CaseFilling />} />
               
             </Route>
             <Route path='/login' element={<Login />} />
