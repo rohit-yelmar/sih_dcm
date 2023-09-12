@@ -11,6 +11,7 @@ import Calendar from "scenes/calendar"
 import Login from "scenes/login"
 import Profile from "scenes/profile"
 import Meeting from 'scenes/meetings';
+import TextEditor from 'scenes/TextEditor';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
               <Route path='/overview' element={<Overview  />} />
               <Route path='/calendar' element={<Calendar />} />
               <Route path='/meetings' element={<Meeting />} />
+              <Route path='/texteditor' element={<TextEditor />} />
               <Route path='/profile' element={<Profile userId={userId} />} />
               
             </Route>
