@@ -56,7 +56,7 @@ const navItems = [
         icon:<TodayOutlined />
     },
     {
-        text:"Text Editor",
+        text:"TextEditor",
         icon:<TodayOutlined />
     }
 ]
