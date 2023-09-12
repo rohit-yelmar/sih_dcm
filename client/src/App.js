@@ -45,7 +45,7 @@ function App() {
             <Route path='/login' element={<Login />} />
           </Routes>
         </ThemeProvider>
-      </BrowserRouter>
+      </BrowserRouter> 
       
     </div>
   );

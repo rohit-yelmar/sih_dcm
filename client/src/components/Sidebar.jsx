@@ -41,7 +41,7 @@ const navItems = [
     },
     {
         text:"CaseFlow",
-        icon:<ReceiptLongOutlined />
+        icon:<ReceiptLongOutlined /> 
     },
     {
         text:"Profile",
