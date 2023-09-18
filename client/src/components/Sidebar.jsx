@@ -70,10 +70,6 @@ const navItems = [
     icon: <TodayOutlined />,
   },
   {
-    text: "Notifications",
-    icon: <NotificationsIcon />,
-  },
-  {
     text: "Log Out",
     icon: <LogoutIcon />,
   },
