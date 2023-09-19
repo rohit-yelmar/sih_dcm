@@ -35,7 +35,6 @@ app.use(bodyParser.json({ limit: "30mb", extended: true }));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
 app.use("/assets", express.static(path.join(__dirname, "public/assets")));
-app.use(express.static(path.join(__dirname, "client")));
 
 //File Storage
 const storage = multer.diskStorage({
@@ -48,36 +47,30 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage });
 
-//Routes with File
-app.post("/casecreate", createCase);
-
 //Routes
 app.use("/dcm", dcmRoutes);
 app.use("/client", clientRoutes);
 app.use("/auth", authRoutes);
 app.use("/case", caseRoutes);
 
+//Routes with File
+app.post("/casecreate", createCase);
+
 // Pusher for Notifications
 const publicVapidKey = process.env.PUBLIC_VAPID_KEY;
 const privateVapidKey = process.env.PRIVATE_VAPID_KEY;
 webPush.setVapidDetails(
-  "mailto:test@example.com",
+  "mailto:test@test.com",
   publicVapidKey,
   privateVapidKey
 );
-app.post("/notifications", (req, res) => {
-  const notification = req.body;
-
-  res.status(201).json({ message: "Alert through notification!" });
-
-  const payload = JSON.stringify({
-    title: "Heading",
-    description: "This is a notification",
-  });
-
+app.post("/subscribe", (req, res) => {
+  const { subscription, title, message } = req.body;
+  const payload = JSON.stringify({ title, message });
   webPush
-    .sendNotification(notification, payload)
-    .catch((err) => console.error(err));
+    .sendNotification(subscription, payload)
+    .catch((err) => console.error("err", err));
+  res.status(200).json({ success: true });
 });
 
 //Mongoose Setup
