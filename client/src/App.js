@@ -7,7 +7,8 @@ import { themeSettings } from 'theme';
 import Dashboard from 'scenes/dashboard';
 import Layout from 'scenes/layout';
 import Overview from "scenes/overview"
-import Calendar from "scenes/calendar"
+import CalendarComponent from "scenes/calendar"
+import Meeting from 'scenes/meetings';
 
 
 function App() {
@@ -23,7 +24,8 @@ function App() {
               <Route path='/' element={<Navigate to='/dashboard' replace />} />
               <Route path='/dashboard' element={<Dashboard />} />
               <Route path='/overview' element={<Overview />} />
-              <Route path='/calendar' element={<Calendar />} />
+              <Route path='/calendar' element={<CalendarComponent />} />
+              <Route path='/Meetings' element={<Meeting />} />
             </Route>
           </Routes>
         </ThemeProvider>

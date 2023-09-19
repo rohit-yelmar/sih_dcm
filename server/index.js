@@ -13,6 +13,8 @@ import multer from "multer";
 import path from "path";
 import { fileURLToPath } from "url"; 
 import {createCase} from "./controllers/case.js"
+import http from "http";
+
 
 //data imports
 import User from "./models/User.js"
@@ -24,6 +26,7 @@ import {dataUser,dataProduct,dataProductStat} from "./data/index.js"
 
 dotenv.config()
 const app = express();
+const server = http.createServer(app)
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 app.use(express.json())
@@ -34,6 +37,32 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended:false}))
 app.use(cors());
 app.use("/assets",express.static(path.join(__dirname,'public/assets')))
+
+//socket.io
+import { Server } from "socket.io";
+
+const io = new Server(server, {
+  cors: {
+    origin: "http://localhost:3000",
+    methods: ["GET", "POST"],
+  },
+});
+io.on("connection", (socket) => {
+	socket.emit("me", socket.id)
+
+	socket.on("disconnect", () => {
+		socket.broadcast.emit("callEnded")
+	})
+
+	socket.on("callUser", (data) => {
+		io.to(data.userToCall).emit("callUser", { signal: data.signalData, from: data.from, name: data.name })
+	})
+
+	socket.on("answerCall", (data) => {
+		io.to(data.to).emit("callAccepted", data.signal)
+	})
+})
+
 
 //File Storage 
 
