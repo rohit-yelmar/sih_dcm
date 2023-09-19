@@ -8,12 +8,12 @@ const CaseFilling = () => {
     <Box>
       <Box
         width="100%"
-        backgroundColor={theme.palette.background.alt}
+        backgroundColor={theme.palette.background.default}
         p="1rem 6%"
         textAlign="center"
       >
-        <Typography fontWeight="bold" fontSize="32px" color="primary">
-          Case Filling
+        <Typography fontWeight="bold" fontSize="32px" color="secondary">
+          CASE FILLING
         </Typography>
       </Box>
 
@@ -22,10 +22,10 @@ const CaseFilling = () => {
         p="2rem"
         m="2rem auto"
         borderRadius="1.5rem"
-        backgroundColor={theme.palette.background.alt}
+        backgroundColor={theme.palette.background.default}
       >
         <Typography fontWeight="500" variant="h5" sx={{ mb: "1.5rem" }}>
-          Case Filling
+        CASE FILLING
         </Typography>
         <Form1 />
       </Box>

@@ -38,39 +38,39 @@ import profileImage from "assets/profile.png";
 //Nav Items to Map Through
 const navItems = [
   {
-    text: "Dashboard",
+    text: "DASHBOARD",
     icon: <HomeOutlined />,
   },
   {
-    text: "CaseFilling",
+    text: "CASE FILLING",
     icon: <HomeOutlined />,
   },
   {
-    text: "Overview",
+    text: "OVERVIEW",
     icon: <TrendingUpOutlined />,
   },
   {
-    text: "Calendar",
+    text: "CALENDAR",
     icon: <CalendarMonthOutlined />,
   },
   {
-    text: "CaseFlow",
+    text: "CASE FLOW",
     icon: <ReceiptLongOutlined />,
   },
   {
-    text: "Profile",
+    text: "PROFILE",
     icon: <Groups2Outlined />,
   },
   {
-    text: "Meetings",
+    text: "MEETINGS",
     icon: <TodayOutlined />,
   },
   {
-    text: "TextEditor",
+    text: "TEXT EDITOR",
     icon: <TodayOutlined />,
   },
   {
-    text: "Log Out",
+    text: "LOG OUT",
     icon: <LogoutIcon />,
   },
 ];
@@ -100,7 +100,7 @@ const Sidebar = ({
           width: drawerWidth,
           "& .MuiDrawer-paper": {
             color: theme.palette.secondary[200],
-            backgroundColor: theme.palette.background.alt,
+            backgroundColor: theme.palette.background[200],
             boxSixing: "border-box",
             borderWidth: isNonMobile ? 0 : "2px",
             width: drawerWidth,
@@ -112,7 +112,7 @@ const Sidebar = ({
             <FlexBetween color={theme.palette.secondary.main}>
               <Box display="flex" alignItems="center" gap="0.5rem">
                 <Typography variant="h4" fontWeight="bold">
-                  Distributed Case Management
+                  DISTRIBUTED CASE MANAGEMENT
                 </Typography>
               </Box>
               {!isNonMobile && (
@@ -139,7 +139,7 @@ const Sidebar = ({
                           : "transparent",
                       color:
                         active === lcText
-                          ? theme.palette.primary[600]
+                          ? theme.palette.primary[900]
                           : theme.palette.secondary[100],
                     }}
                   >
@@ -148,7 +148,7 @@ const Sidebar = ({
                         ml: "2rem",
                         color:
                           active === lcText
-                            ? theme.palette.primary[600]
+                            ? theme.palette.primary[900]
                             : theme.palette.secondary[200],
                       }}
                     >

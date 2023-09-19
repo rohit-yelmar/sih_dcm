@@ -12,7 +12,7 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { setLogin,setUserId } from "state";
+import { setLogin, setUserId } from "state";
 import Dropzone from "react-dropzone";
 import FlexBetween from "components/FlexBetween";
 
@@ -20,7 +20,6 @@ const registerSchema = yup.object().shape({
   name: yup.string().required("required"),
   email: yup.string().email("invalid email").required("required"),
   password: yup.string().required("required"),
-  
 });
 
 const loginSchema = yup.object().shape({
@@ -51,7 +50,6 @@ const Form = () => {
   const register = async (values, onSubmitProps) => {
     // this allows us to send form info with image
     const requestBody = JSON.stringify(values);
-    
 
     const savedUserResponse = await fetch(
       "http://localhost:5001/auth/register",
@@ -77,23 +75,22 @@ const Form = () => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
     });
-    const loggedIn = await loggedInResponse.json(); 
-    console.log("Log",loggedIn.user);
+    const loggedIn = await loggedInResponse.json();
+    console.log("Log", loggedIn.user);
 
     onSubmitProps.resetForm();
     if (loggedIn) {
       dispatch(
-        setLogin({ 
+        setLogin({
           user: loggedIn.user,
           token: loggedIn.token,
         })
-        
       );
       dispatch(
         setUserId({
           userId: loggedIn.user._id,
         })
-      )
+      );
       navigate("/dashboard");
     }
   };
@@ -136,13 +133,10 @@ const Form = () => {
                   onChange={handleChange}
                   value={values.name}
                   name="name"
-                  error={
-                    Boolean(touched.name) && Boolean(errors.name)
-                  }
+                  error={Boolean(touched.name) && Boolean(errors.name)}
                   helperText={touched.name && errors.name}
                   sx={{ gridColumn: "span 4" }}
                 />
-              
               </>
             )}
 
@@ -177,9 +171,12 @@ const Form = () => {
               sx={{
                 m: "2rem 0",
                 p: "1rem",
-                backgroundColor: palette.primary.main,
+                backgroundColor: palette.secondary[300],
                 color: palette.background.alt,
-                "&:hover": { color: palette.primary.main },
+                "&:hover": {
+                  backgroundColor: palette.secondary[200],
+                  color: palette.background.alt,
+                },
               }}
             >
               {isLogin ? "LOGIN" : "REGISTER"}
@@ -191,10 +188,10 @@ const Form = () => {
               }}
               sx={{
                 textDecoration: "underline",
-                color: palette.primary.main,
+                color: palette.secondary[300],
                 "&:hover": {
                   cursor: "pointer",
-                  color: palette.primary.light,
+                  color: palette.secondary[200],
                 },
               }}
             >
