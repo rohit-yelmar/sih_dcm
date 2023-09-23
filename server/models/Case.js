@@ -21,6 +21,7 @@ const caseSchema = mongoose.Schema({
     courtType:{type:String},
     petitioners:{type:String},
     respondents:{type:String},
+    precedents:{type:String},
 
 })
 const Case = mongoose.model("Case",caseSchema);

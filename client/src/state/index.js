@@ -6,6 +6,7 @@ const initialState = {
   user:null,
   token:null,
   cases:[],
+  caseId:"c",
 };
 
 export const globalSlice = createSlice({
@@ -28,11 +29,14 @@ export const globalSlice = createSlice({
     },
     setCases:(state,action)=>{
       state.cases = action.payload.cases;
-    }
+    },
+    setCaseId:(state,action)=>{
+      state.caseId = action.payload.caseId;
+    },
   },
 });
 
 
-export const { setMode,setLogin,setLogout,setCases,setUserId } = globalSlice.actions;
+export const { setMode,setLogin,setLogout,setCases,setUserId,setCaseId } = globalSlice.actions;
 
 export default globalSlice.reducer;

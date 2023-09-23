@@ -1,50 +1,77 @@
-import React,{useState} from 'react'
-import {LightModeOutlined,DarkModeOutlined,Menu as MenuIcon,Search,SettingsOutlined,ArrowDropDownOutlined} from '@mui/icons-material'
-import FlexBetween from 'components/FlexBetween'
-import {useDispatch} from 'react-redux'
-import { setMode } from 'state'
-import profileImage from 'assets/profile.png'
-import { AppBar, Button, IconButton, InputBase, Toolbar, useTheme,Box,Typography,Menu,MenuItem } from '@mui/material'
+import React, { useState } from "react";
+import {
+  LightModeOutlined,
+  DarkModeOutlined,
+  Menu as MenuIcon,
+  Search,
+  SettingsOutlined,
+  ArrowDropDownOutlined,
+} from "@mui/icons-material";
+import FlexBetween from "components/FlexBetween";
+import { useDispatch } from "react-redux";
+import { setMode } from "state";
+import profileImage from "assets/profile.png";
+import NotificationsIcon from "@mui/icons-material/Notifications";
+import {
+  AppBar,
+  Button,
+  IconButton,
+  InputBase,
+  Toolbar,
+  useTheme,
+  Box,
+  Typography,
+  Menu,
+  MenuItem,
+} from "@mui/material";
+import { Link } from "react-router-dom";
 
-const Navbar = ({user,isSidebarOpen,setIsSidebarOpen,}) => {
-    const dispatch = useDispatch()
-    const theme = useTheme()
-    const [anchorEl,setAnchorEl] = useState(null)
-    const isOpen = Boolean(anchorEl);
-    const handleClick = (event) =>setAnchorEl(event.currentTarget)
-    const handleClose = ()=>setAnchorEl(null)
+const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
+  const dispatch = useDispatch();
+  const theme = useTheme();
+  const [anchorEl, setAnchorEl] = useState(null);
+  const isOpen = Boolean(anchorEl);
+  const handleClick = (event) => setAnchorEl(event.currentTarget);
+  const handleClose = () => setAnchorEl(null);
 
-  return <AppBar sx={{position:"static",background:"none",boxShadow:"none",}}>
-    <Toolbar sx={{justifyContent:"space-between"}}>
+  return (
+    <AppBar sx={{ position: "static", background: "none", boxShadow: "none" }}>
+      <Toolbar sx={{ justifyContent: "space-between" }}>
         {/*Left side of AppBar/Navbar*/}
         <FlexBetween>
-            <IconButton onClick={()=>setIsSidebarOpen(!isSidebarOpen)} >
-                <MenuIcon />
-
+          <IconButton onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
+            <MenuIcon />
+          </IconButton>
+          <FlexBetween
+            backgroundColor={theme.palette.background.alt}
+            borderRadius="9px"
+            gap="3rem"
+            p="0.1rem 1.5rem"
+          >
+            <InputBase placeholder="Search..." />
+            <IconButton>
+              <Search />
             </IconButton>
-            <FlexBetween backgroundColor={theme.palette.background.alt} borderRadius="9px" gap="3rem" p="0.1rem 1.5rem" >
-                <InputBase placeholder='Search...' />
-                <IconButton>
-                    <Search />
-                </IconButton>
-
-
-            </FlexBetween>
-
+          </FlexBetween>
         </FlexBetween>
         {/*Right side of AppBar*/}
         <FlexBetween gap="1.5rem">
-            <IconButton onClick={()=>dispatch(setMode())}>
-                {theme.palette.mode === 'dark' ? (
-                    <DarkModeOutlined sx={{fontSize:"25px"}} />
-                ):(
-                    <LightModeOutlined sx={{fontSize:"25px"}} />
-                )}
-            </IconButton>
+          <IconButton onClick={() => dispatch(setMode())}>
+            {theme.palette.mode === "dark" ? (
+              <DarkModeOutlined sx={{ fontSize: "25px" }} />
+            ) : (
+              <LightModeOutlined sx={{ fontSize: "25px" }} />
+            )}
+          </IconButton>
+          <IconButton>
+            <SettingsOutlined sx={{ fontSize: "25px" }} />
+          </IconButton>
+          <Link to={"/notifications"}>
             <IconButton>
-            <SettingsOutlined sx={{fontSize:"25px"}} />
+              <NotificationsIcon sx={{ fontSize: "25px" }} />
             </IconButton>
-            <FlexBetween>
+          </Link>
+          <FlexBetween>
             <Button
               onClick={handleClick}
               sx={{
@@ -93,9 +120,9 @@ const Navbar = ({user,isSidebarOpen,setIsSidebarOpen,}) => {
             </Menu>
           </FlexBetween>
         </FlexBetween>
-    </Toolbar>
+      </Toolbar>
+    </AppBar>
+  );
+};
 
-  </AppBar>
-}
-
-export default Navbar
+export default Navbar;

@@ -12,8 +12,10 @@ import { Formik } from "formik";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
+import { setCaseId } from "state";
 import FlexBetween from 'components/FlexBetween';
 import Dropzone from 'react-dropzone';
+import { useSelector } from "react-redux";
 
 const caseSchema = yup.object().shape({
   name: yup.string().required("required"),
@@ -27,6 +29,7 @@ const caseSchema = yup.object().shape({
   courtType: yup.string().required("required"),
   petitioners: yup.string().required("required"),
   respondents: yup.string().required("required"),
+  precedents: yup.string().required("required"),
 });
 const initialValuesCaseFilling = {
   name:"",
@@ -40,6 +43,7 @@ const initialValuesCaseFilling = {
   courtType:"",
   petitioners:"",
   respondents:"",
+  precedents:"",
 }
 
 const Form = () => {
@@ -69,12 +73,21 @@ const Form = () => {
       }
     );
     const savedCase = await savedCaseResponse.json();
+    console.log("savedCase", savedCase);
+    dispatch(
+      setCaseId({
+        caseId: values.caseId,
+      })
+    )
+    
+    navigate('/dashboard');
+    
     onSubmitProps.resetForm();
 
-    navigate('/dashboard');
+    
   };
   const handleFormSubmit = async (values, onSubmitProps) => {
-    console.log("FormSubmit",values)
+    console.log("FormSubmit",values);
     if (true) await Case(values, onSubmitProps);
 
    
@@ -258,6 +271,18 @@ const Form = () => {
                     Boolean(touched.respondents) && Boolean(errors.respondents)
                   }
                   helperText={touched.respondents && errors.respondents}
+                  sx={{ gridColumn: "span 4" }}
+                />
+                <TextField
+                  label="precedents"
+                  onBlur={handleBlur}
+                  onChange={handleChange}
+                  value={values.precedents}
+                  name="precedents"
+                  error={
+                    Boolean(touched.precedents) && Boolean(errors.precedents)
+                  }
+                  helperText={touched.precedents && errors.precedents}
                   sx={{ gridColumn: "span 4" }}
                 />
           </Box>

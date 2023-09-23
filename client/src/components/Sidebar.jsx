@@ -40,7 +40,7 @@ const navItems = [
         icon:<CalendarMonthOutlined />
     },
     {
-        text:"CaseFlow",
+        text:"CaseOverview",
         icon:<ReceiptLongOutlined /> 
     },
     {
