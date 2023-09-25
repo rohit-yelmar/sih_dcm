@@ -25,7 +25,10 @@
     "@testing-library/user-event": "^13.5.0",
     "dayjs": "^1.11.9",
     "formik": "^2.4.4",
+    "pdf-parse": "^1.1.1",
     "react": "^18.2.0",
+    "react-calendar": "^4.6.0",
+    "react-copy-to-clipboard": "^5.1.0",
     "react-datepicker": "^4.8.0",
     "react-dom": "^18.2.0",
     "react-dropzone": "^14.2.3",
@@ -33,12 +36,12 @@
     "react-router-dom": "^6.15.0",
     "react-scripts": "5.0.1",
     "redux-persist": "^6.0.0",
-    "web-vitals": "^2.1.4",
-    "yup": "^1.2.0",
-    "react-calendar": "^4.6.0",
-    "react-copy-to-clipboard": "^5.1.0",
     "simple-peer": "^9.11.1",
-    "socket.io-client": "^4.7.2"
+    "socket.io-client": "^4.7.2",
+    "web-vitals": "^2.1.4",
+    "wink-eng-lite-web-model": "^1.5.2",
+    "wink-nlp": "^1.14.3",
+    "yup": "^1.2.0"
   },
   "scripts": {
     "start": "react-scripts start",

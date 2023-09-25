@@ -8,6 +8,10 @@ import {
   PersonAdd,
   Traffic,
 } from "@mui/icons-material";
+import BackupTableIcon from "@mui/icons-material/BackupTable";
+import PendingActionsIcon from "@mui/icons-material/PendingActions";
+import AlignVerticalBottomIcon from "@mui/icons-material/AlignVerticalBottom";
+import AnalyticsIcon from "@mui/icons-material/Analytics";
 import {
   Box,
   Button,
@@ -20,20 +24,20 @@ import BreakdownChart from "components/BreakdownChart";
 import OverviewChart from "components/OverviewChart";
 import { useGetAllCasesQuery, useGetDashboardQuery } from "state/api";
 import StatBox from "components/StatBox";
-import { BarChart } from '@mui/x-charts/BarChart';
-import { axisClasses } from '@mui/x-charts';
-import { PieChart } from '@mui/x-charts/PieChart';
+import { BarChart } from "@mui/x-charts/BarChart";
+import { axisClasses } from "@mui/x-charts";
+import { PieChart } from "@mui/x-charts/PieChart";
 
-const Dashboard  = () => {
+const Dashboard = () => {
   const theme = useTheme();
   const isNonMediumScreens = useMediaQuery("(min-width: 1200px)");
   //const { data, isLoading } = useGetDashboardQuery();
-  const {data} = useGetAllCasesQuery();
+  const { data } = useGetAllCasesQuery();
 
   const chartSetting = {
     xAxis: [
       {
-        label: 'Hearings(3.33 Hours)',
+        label: "Hearings(3.33 Hours)",
       },
     ],
     width: 650,
@@ -45,28 +49,28 @@ const Dashboard  = () => {
       paris: 5,
       newYork: 86,
       seoul: 3,
-      month: 'GCD',
+      month: "GCD",
     },
     {
       london: 50,
       paris: 9,
       newYork: 78,
       seoul: 5,
-      month: 'MAC',
+      month: "MAC",
     },
     {
       london: 47,
       paris: 7,
       newYork: 106,
       seoul: 4.5,
-      month: 'EWS',
+      month: "EWS",
     },
     {
       london: 54,
       paris: 10,
       newYork: 92,
       seoul: 7.5,
-      month: 'SMSC',
+      month: "SMSC",
     },
     // },
     // {
@@ -129,15 +133,14 @@ const Dashboard  = () => {
   const chartSetting1 = {
     yAxis: [
       {
-        label: 'Pending Cases',
+        label: "Pending Cases",
       },
-      
     ],
     width: 700,
     height: 300,
     sx: {
       [`.${axisClasses.left} .${axisClasses.label}`]: {
-        transform: 'rotate(-90deg) translate(0px, -20px)',
+        transform: "rotate(-90deg) translate(0px, -20px)",
       },
     },
   };
@@ -147,105 +150,105 @@ const Dashboard  = () => {
       paris: 42,
       newYork: 280,
       seoul: 21,
-      month: '2010',
+      month: "2010",
     },
     {
       london: 59,
       paris: 43,
       newYork: 270,
       seoul: 28,
-      month: '2011',
+      month: "2011",
     },
     {
       london: 67,
       paris: 44,
       newYork: 270,
       seoul: 41,
-      month: '2012',
+      month: "2012",
     },
     {
       london: 66,
       paris: 45,
       newYork: 270,
       seoul: 73,
-      month: '2013',
+      month: "2013",
     },
     {
       london: 63,
       paris: 41,
       newYork: 260,
       seoul: 99,
-      month: '2014',
+      month: "2014",
     },
     {
       london: 59,
       paris: 39,
       newYork: 280,
       seoul: 144,
-      month: '2015',
+      month: "2015",
     },
     {
       london: 63,
       paris: 40,
       newYork: 280,
       seoul: 319,
-      month: '2016',
+      month: "2016",
     },
     {
       london: 56,
       paris: 42,
       newYork: 290,
       seoul: 249,
-      month: '2017',
+      month: "2017",
     },
     {
       london: 57,
       paris: 44,
       newYork: 300,
       seoul: 131,
-      month: '2018',
+      month: "2018",
     },
     {
       london: 60,
       paris: 47,
       newYork: 320,
       seoul: 55,
-      month: '2019',
+      month: "2019",
     },
     {
       london: 65,
       paris: 56,
       newYork: 370,
       seoul: 48,
-      month: '2020',
+      month: "2020",
     },
     {
       london: 70,
       paris: 56,
       newYork: 400,
       seoul: 25,
-      month: '2021',
+      month: "2021",
     },
     {
       london: 75,
       paris: 58,
       newYork: 450,
       seoul: 25,
-      month: '2022',
+      month: "2022",
     },
     {
       london: 80,
       paris: 60,
       newYork: 480,
       seoul: 25,
-      month: '2023',
+      month: "2023",
     },
   ];
 
   const valueFormatter1 = (value) => `${value}Ths`;
   const valueFormatter2 = (value) => `${value}Lks`;
   const valueFormatter3 = (value) => `${value}Lks`;
-  
+
   console.log("length");
   const columns = [
     {
@@ -278,7 +281,7 @@ const Dashboard  = () => {
     },
   ];
   //console.log("dashboard",data);
-  console.log("allcases",data)
+  console.log("allcases", data);
   return (
     <Box m="1.5rem 2.5rem">
       <FlexBetween>
@@ -316,7 +319,7 @@ const Dashboard  = () => {
           increase="+14%"
           description="Since last month"
           icon={
-            <Email
+            <BackupTableIcon
               sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
             />
           }
@@ -327,7 +330,7 @@ const Dashboard  = () => {
           increase="+21%"
           description="DCM Expected time"
           icon={
-            <PointOfSale
+            <PendingActionsIcon
               sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
             />
           }
@@ -335,22 +338,21 @@ const Dashboard  = () => {
         <Box
           gridColumn="span 8"
           gridRow="span 2"
-          
           backgroundColor={theme.palette.background.alt}
           p="1.5rem"
           borderRadius="0.55rem"
         >
           <BarChart
-      dataset={dataset1}
-      xAxis={[{ scaleType: 'band', dataKey: 'month' }]}
-      series={[
-        { dataKey: 'london', label: 'Supreme', valueFormatter1 },
-        { dataKey: 'paris', label: 'High', valueFormatter1 },
-        { dataKey: 'newYork', label: 'Subordinate', valueFormatter1 },
-        // { dataKey: 'seoul', label: 'Seoul', valueFormatter },
-      ]}
-      {...chartSetting1}
-    />
+            dataset={dataset1}
+            xAxis={[{ scaleType: "band", dataKey: "month" }]}
+            series={[
+              { dataKey: "london", label: "Supreme", valueFormatter1 },
+              { dataKey: "paris", label: "High", valueFormatter1 },
+              { dataKey: "newYork", label: "Subordinate", valueFormatter1 },
+              // { dataKey: 'seoul', label: 'Seoul', valueFormatter },
+            ]}
+            {...chartSetting1}
+          />
         </Box>
         <StatBox
           title="Hard Cases"
@@ -358,7 +360,7 @@ const Dashboard  = () => {
           increase="+5%"
           description="Since last month"
           icon={
-            <PersonAdd
+            <AlignVerticalBottomIcon
               sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
             />
           }
@@ -369,12 +371,12 @@ const Dashboard  = () => {
           increase="+43%"
           description="Since last month"
           icon={
-            <Traffic
+            <AnalyticsIcon
               sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
             />
           }
         />
-        
+
         {/* <StatBox
           title="Easy Cases"
           value="3"
@@ -422,31 +424,34 @@ const Dashboard  = () => {
             columns={columns}
           /> */}
           <Box
-        mt="1px"
-        
-        display="grid"
-        gridTemplateColumns="repeat(2, 1fr)"
-        gridAutoRows="160px"
-        gap="10px"
-        sx={{
-          "& > div": { gridColumn: isNonMediumScreens ? undefined : "span 20" },
-        }}
-      >
-        <BarChart
-      dataset={dataset}
-      yAxis={[{ scaleType: 'band', dataKey: 'month' }]}
-      series={[{ dataKey: 'seoul', label: 'Allocated' },{ dataKey: 'paris', label:'Actual Time'}]}
-      layout="horizontal"
-      {...chartSetting}
-    />
-      </Box>
+            mt="1px"
+            display="grid"
+            gridTemplateColumns="repeat(2, 1fr)"
+            gridAutoRows="160px"
+            gap="10px"
+            sx={{
+              "& > div": {
+                gridColumn: isNonMediumScreens ? undefined : "span 20",
+              },
+            }}
+          >
+            <BarChart
+              dataset={dataset}
+              yAxis={[{ scaleType: "band", dataKey: "month" }]}
+              series={[
+                { dataKey: "seoul", label: "Allocated" },
+                { dataKey: "paris", label: "Actual Time" },
+              ]}
+              layout="horizontal"
+              {...chartSetting}
+            />
+          </Box>
         </Box>
-        
+
         <Box
           gridColumn="span 4"
           gridRow="span 2"
           mt="20px"
-          
           backgroundColor={theme.palette.background.alt}
           p="0rem"
           borderRadius="0.55rem"
@@ -456,31 +461,31 @@ const Dashboard  = () => {
           </Typography>
           {/* <BreakdownChart isDashboard={true} /> */}
           <PieChart
-        colors={['cyan', `#008080`, `#DDFF94`]}
-      series={[
-        { 
-          data: [
-            { id: 0, value: 10, label: 'Criminal' },
-            { id: 1, value: 15, label: 'Civil' },
-            { id: 2, value: 20, label: 'Family' },
-          ],
-          
-        },
-      ]}
-      width={400}
-      height={200}
-    />
+            colors={["cyan", `#008080`, `#DDFF94`]}
+            series={[
+              {
+                data: [
+                  { id: 0, value: 10, label: "Criminal" },
+                  { id: 1, value: 15, label: "Civil" },
+                  { id: 2, value: 20, label: "Family" },
+                ],
+              },
+            ]}
+            width={400}
+            height={200}
+          />
           <Typography
             p="0 0.6rem"
             fontSize="0.8rem"
             sx={{ color: theme.palette.secondary[200] }}
           >
-            Breakdown of all Cases and information via category for productivity.
+            Breakdown of all Cases and information via category for
+            productivity.
           </Typography>
         </Box>
-        </Box>
       </Box>
-  )
-}
+    </Box>
+  );
+};
 
-export default Dashboard 
+export default Dashboard;

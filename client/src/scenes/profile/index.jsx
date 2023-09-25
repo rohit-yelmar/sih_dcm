@@ -5,7 +5,11 @@ import WidgetWrapper from "components/WidgetWrapper";
 import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { EditOutlined, LocationOnOutlined, ManageAccountsOutlined } from "@mui/icons-material";
+import {
+  EditOutlined,
+  LocationOnOutlined,
+  ManageAccountsOutlined,
+} from "@mui/icons-material";
 
 const Profile = ({ userId }) => {
   const [user, setUser] = useState(null);
@@ -30,9 +34,7 @@ const Profile = ({ userId }) => {
   if (!user) {
     return null;
   }
-  const {
-    name,email,role
-  } = user;
+  const { name, email, role } = user;
 
   return (
     <WidgetWrapper>
@@ -56,9 +58,8 @@ const Profile = ({ userId }) => {
                 },
               }}
             >
-              {name} 
+              Legal Authority
             </Typography>
-            
           </Box>
         </FlexBetween>
         <ManageAccountsOutlined />
@@ -70,17 +71,13 @@ const Profile = ({ userId }) => {
       <Box p="1rem 0">
         <Box display="flex" alignItems="center" gap="1rem" mb="0.5rem">
           <LocationOnOutlined fontSize="large" sx={{ color: main }} />
-          <Typography color={medium}>{email}</Typography>
+          <Typography color={medium}>legalauthority@gmail.com</Typography>
         </Box>
-        
       </Box>
 
       <Divider />
 
       {/* THIRD ROW */}
-      
-
-      
 
       {/* FOURTH ROW */}
       <Box p="1rem 0">
@@ -116,6 +113,6 @@ const Profile = ({ userId }) => {
       </Box>
     </WidgetWrapper>
   );
-}
+};
 
 export default Profile;

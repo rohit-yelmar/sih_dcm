@@ -5,21 +5,26 @@ import NestedList from "@editorjs/nested-list";
 import Checklist from "@editorjs/checklist";
 import Table from "@editorjs/table";
 import Marker from "@editorjs/marker";
-
-const DefaultData = {
-  time: new Date().getTime(),
-  blocks: [
-    {
-      type: "header",
-      data: {
-        level: 2,
-        text: "Start writing your document here...",
-      },
-    },
-  ],
-};
+import { useGetNlpQuery } from "state/api";
 
 const TextEditor = () => {
+  const { data, isLoading } = useGetNlpQuery();
+  console.log("nlp text editor", data);
+  var DefaultData = "";
+  if (data) {
+    DefaultData = {
+      time: new Date().getTime(),
+      blocks: [
+        {
+          type: "header",
+          data: {
+            level: 5,
+            text: `${data.pdfText}`,
+          },
+        },
+      ],
+    };
+  }
   const editorRef = useRef();
 
   const initEditor = () => {
@@ -51,7 +56,7 @@ const TextEditor = () => {
           class: Table,
           inlineToolbar: true,
           config: {
-            rows: 2,
+            rows: 10,
             cols: 3,
           },
         },

@@ -15,6 +15,7 @@ import CaseOverview from "scenes/caseOverview";
 import Meeting from "scenes/meetings";
 import TextEditor from "scenes/TextEditor";
 import Notifications from "scenes/notification";
+import Nlp from "scenes/nlp";
 
 function App() {
   const mode = useSelector((state) => state.global.mode);
@@ -43,6 +44,11 @@ function App() {
               <Route path="/meetings" element={<Meeting />} />
               <Route path="/texteditor" element={<TextEditor />} />
               <Route path="/notifications" element={<Notifications />} />
+              <Route path="/nlp" element={<Nlp />} />
+              <Route
+                path="/signout"
+                element={<Navigate to="/login" replace />}
+              />
             </Route>
             <Route path="/login" element={<Login />} />
           </Routes>

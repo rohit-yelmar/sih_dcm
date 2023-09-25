@@ -10,11 +10,13 @@ import clientRoutes from "./routes/client.js";
 import authRoutes from "./routes/auth.js";
 import caseRoutes from "./routes/case.js";
 import salesRoutes from "./routes/sales.js";
+import nlpRoutes from "./routes/nlp.js";
 import multer from "multer";
 import path from "path";
 import { fileURLToPath } from "url";
 import { createCase } from "./controllers/case.js";
 import webPush from "web-push";
+import fs from "fs";
 
 //data imports
 import User from "./models/User.js";
@@ -84,6 +86,23 @@ app.use("/client", clientRoutes);
 app.use("/auth", authRoutes);
 app.use("/case", caseRoutes);
 app.use("/sales", salesRoutes);
+app.use("/nlp", nlpRoutes);
+
+//Instantiate wink-nlp.
+
+// new PdfReader().parseFileItems("./data/court.pdf", (err, item) => {
+//   if (err) console.error("error:", err);
+//   else if (!item) console.warn("end of file");
+//   else if (item.text) {
+//
+//   }
+// });
+
+//
+
+// Code for Hello World!
+
+// -> [ [ 'word', 5 ], [ 'punctuation', 2 ], [ 'emoji', 1 ] ]
 
 //Mongoose Setup
 

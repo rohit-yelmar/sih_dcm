@@ -17,27 +17,25 @@ const Stat = ({ title, value, increase, icon, description }) => {
       borderRadius="0.55rem"
     >
       <FlexBetween>
-        <Typography variant="h3" fontWeight="600" sx={{ color: theme.palette.secondary[200] }}>
-          Case Name:{title}
-        </Typography>
-        <Typography
-        variant="h3"
-        fontWeight="600"
-        sx={{ color: theme.palette.secondary[200] }}
-      >
-        Case Type:{value}
-      </Typography>
-        {icon}
-
-      </FlexBetween>
-
-      
-      <FlexBetween gap="1rem">
         <Typography
           variant="h3"
-          
-          sx={{ color: theme.palette.secondary.dark }}
+          fontWeight="600"
+          sx={{ color: theme.palette.secondary[200] }}
         >
+          Case Name: {title}
+        </Typography>
+        <Typography
+          variant="h3"
+          fontWeight="600"
+          sx={{ color: theme.palette.secondary[200] }}
+        >
+          Case Type: {value}
+        </Typography>
+        {icon}
+      </FlexBetween>
+
+      <FlexBetween gap="1rem">
+        <Typography variant="h3" sx={{ color: theme.palette.secondary.dark }}>
           Status:{increase}
         </Typography>
         <Typography>{description}</Typography>

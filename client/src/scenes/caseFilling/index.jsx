@@ -1,5 +1,7 @@
 import { Box, Typography, useTheme, useMediaQuery } from "@mui/material";
+import Header from "components/Header.jsx";
 import Form1 from "./Form.jsx";
+import PendingActionsIcon from "@mui/icons-material/PendingActions";
 
 const CaseFilling = () => {
   const theme = useTheme();
@@ -12,9 +14,10 @@ const CaseFilling = () => {
         p="1rem 6%"
         textAlign="center"
       >
-        <Typography fontWeight="bold" fontSize="32px" color="primary">
-          Case Filling
-        </Typography>
+        <Header title="CASE FILING" subtitle="" />
+        <PendingActionsIcon
+          sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
+        />
       </Box>
 
       <Box

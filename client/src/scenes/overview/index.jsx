@@ -7,22 +7,22 @@ import {
   Collapse,
   Button,
   Typography,
-  Rating,
+  laws,
   useTheme,
   useMediaQuery,
 } from "@mui/material";
 import Header from "components/Header";
 import { useGetProductsQuery } from "state/api";
+import { useGetAllCasesQuery } from "state/api";
 
 const OverviewIndividual = ({
-  _id,
+  caseId,
   name,
-  description,
-  price,
-  rating,
-  category,
-  supply,
-  stat,
+  location,
+  issues,
+  laws,
+  lawType,
+  courtType,
 }) => {
   const theme = useTheme();
   const [isExpanded, setIsExpanded] = useState(false);
@@ -41,17 +41,17 @@ const OverviewIndividual = ({
           color={theme.palette.secondary[700]}
           gutterBottom
         >
-          {category}
+          {lawType}
         </Typography>
         <Typography variant="h5" component="div">
           {name}
         </Typography>
         <Typography sx={{ mb: "1.5rem" }} color={theme.palette.secondary[400]}>
-          ${Number(price).toFixed(2)}
+          ${Number(issues).toFixed(2)}
         </Typography>
-        <Rating value={rating} readOnly />
+        <laws value={laws} readOnly />
 
-        <Typography variant="body2">{description}</Typography>
+        <Typography variant="body2">{location}</Typography>
       </CardContent>
       <CardActions>
         <Button
@@ -71,29 +71,24 @@ const OverviewIndividual = ({
         }}
       >
         <CardContent>
-          <Typography>id: {_id}</Typography>
-          <Typography>Supply Left: {supply}</Typography>
-          <Typography>
-            Yearly Sales This Year: {stat.yearlySalesTotal}
-          </Typography>
-          <Typography>
-            Yearly Units Sold This Year: {stat.yearlyTotalSoldUnits}
-          </Typography>
+          <Typography>id: {caseId}</Typography>
+          <Typography>courtType Left: {courtType}</Typography>
+          <Typography>Yearly Sales This Year:</Typography>
+          <Typography>Yearly Units Sold This Year:</Typography>
         </CardContent>
       </Collapse>
     </Card>
   );
 };
 
-
 const Overview = () => {
-  const {data,isLoading} = useGetProductsQuery();
+  const { data, isLoading } = useGetAllCasesQuery();
   const isNonMobile = useMediaQuery("(min-width: 1000px)");
-  console.log("data1",data);
+  console.log("data1", data);
 
   return (
     <Box m="1.5rem 2.5rem">
-      <Header title="CASES" subtitle="See your list of Cases." />
+      <Header title="CASES" subtitle="Keep Track of your Cases" />
       {data || !isLoading ? (
         <Box
           mt="20px"
@@ -107,26 +102,16 @@ const Overview = () => {
           }}
         >
           {data.map(
-            ({
-              _id,
-              name,
-              description,
-              price,
-              rating,
-              category,
-              supply,
-              stat,
-            }) => (
+            ({ caseId, name, location, issues, laws, lawType, courtType }) => (
               <OverviewIndividual
-                key={_id}
-                _id={_id}
+                key={caseId}
+                caseId={caseId}
                 name={name}
-                description={description}
-                price={price}
-                rating={rating}
-                category={category}
-                supply={supply}
-                stat={stat}
+                location={location}
+                issues={issues}
+                laws={laws}
+                lawType={lawType}
+                courtType={courtType}
               />
             )
           )}
@@ -134,9 +119,8 @@ const Overview = () => {
       ) : (
         <>Loading...</>
       )}
-
     </Box>
-  )
-}
+  );
+};
 
-export default Overview
+export default Overview;
