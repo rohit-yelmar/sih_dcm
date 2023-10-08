@@ -326,9 +326,9 @@ const Dashboard = () => {
         />
         <StatBox
           title="Pending Cases"
-          value="0"
-          increase="+21%"
-          description="DCM Expected time"
+          value="1"
+          increase="+2%"
+          description="Pending Cases"
           icon={
             <PendingActionsIcon
               sx={{ color: theme.palette.secondary[300], fontSize: "26px" }}
@@ -356,7 +356,7 @@ const Dashboard = () => {
         </Box>
         <StatBox
           title="Hard Cases"
-          value="2"
+          value="4"
           increase="+5%"
           description="Since last month"
           icon={
@@ -367,8 +367,8 @@ const Dashboard = () => {
         />
         <StatBox
           title="Intermediate Cases"
-          value="3"
-          increase="+43%"
+          value="0"
+          increase="+0%"
           description="Since last month"
           icon={
             <AnalyticsIcon

@@ -47,7 +47,7 @@ const OverviewIndividual = ({
           {name}
         </Typography>
         <Typography sx={{ mb: "1.5rem" }} color={theme.palette.secondary[400]}>
-          ${Number(issues).toFixed(2)}
+          Issues Involved: {Number(issues)}
         </Typography>
         <laws value={laws} readOnly />
 
@@ -72,9 +72,7 @@ const OverviewIndividual = ({
       >
         <CardContent>
           <Typography>id: {caseId}</Typography>
-          <Typography>courtType Left: {courtType}</Typography>
-          <Typography>Yearly Sales This Year:</Typography>
-          <Typography>Yearly Units Sold This Year:</Typography>
+          <Typography>courtType: {courtType}</Typography>
         </CardContent>
       </Collapse>
     </Card>

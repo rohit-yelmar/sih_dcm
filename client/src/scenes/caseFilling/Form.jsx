@@ -16,6 +16,7 @@ import { setCaseId } from "state";
 import FlexBetween from "components/FlexBetween";
 import Dropzone from "react-dropzone";
 import { useSelector } from "react-redux";
+import { send } from "utils/Push";
 
 const caseSchema = yup.object().shape({
   name: yup.string().required("required"),
@@ -261,9 +262,7 @@ const Form = () => {
               )}
             </Dropzone>
           </Box>
-
           {/* BUTTONS */}
-
           <Button
             fullWidth
             type="submit"
@@ -277,6 +276,9 @@ const Form = () => {
           >
             {"Submit"}
           </Button>
+          {/* {setTimeout(() => {
+            send("Case Filed", "Please check it out...");
+          }, 40000)} */}
         </form>
       )}
     </Formik>

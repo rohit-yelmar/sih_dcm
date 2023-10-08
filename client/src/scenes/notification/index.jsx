@@ -2,51 +2,22 @@ import { Alert, AlertTitle } from "@mui/material";
 import React from "react";
 import { send } from "utils/Push";
 
-function notifUser() {
-  send("TEST", "TEST NOTIFICATION IS WORKING!!!");
-}
-
 const Notifications = () => {
   return (
     <div>
-      <Alert severity="info">
-        <AlertTitle>Case Update</AlertTitle>
-        Hello user! There might be some new updates regarding the case you've
-        filed — <strong>check it out!</strong>
-      </Alert>
       <br />
       <Alert severity="info">
-        <AlertTitle>Case Update</AlertTitle>
-        Hello user! There might be some new updates regarding the case you've
-        filed — <strong>check it out!</strong>
+        <AlertTitle>Case Filed</AlertTitle>
+        Your case has been filed, you can now check case overview and
+        categorization — <strong>check it out!</strong>
       </Alert>
       <br />
-      <Alert severity="info">
-        <AlertTitle>Case Update</AlertTitle>
-        Hello user! There might be some new updates regarding the case you've
-        filed — <strong>check it out!</strong>
-      </Alert>
+      {/* <Alert severity="info">
+        <AlertTitle>Pre-Hearing appointment</AlertTitle>
+        Your appointment is set due 29th September 2023 —{" "}
+        <strong>check it out!</strong>
+      </Alert> */}
       <br />
-      <Alert severity="info">
-        <AlertTitle>Case Update</AlertTitle>
-        Hello user! There might be some new updates regarding the case you've
-        filed — <strong>check it out!</strong>
-      </Alert>
-      <br />
-      <Alert severity="info">
-        <AlertTitle>Case Update</AlertTitle>
-        Hello user! There might be some new updates regarding the case you've
-        filed — <strong>check it out!</strong>
-      </Alert>
-      <br />
-      <Alert severity="info">
-        <AlertTitle>Case Update</AlertTitle>
-        Hello user! There might be some new updates regarding the case you've
-        filed — <strong>check it out!</strong>
-      </Alert>
-      <br />
-
-      <button onClick={notifUser}>HELLO</button>
     </div>
   );
 };

@@ -7,6 +7,7 @@ import {
   SettingsOutlined,
   ArrowDropDownOutlined,
 } from "@mui/icons-material";
+import TranslateIcon from "@mui/icons-material/Translate";
 import FlexBetween from "components/FlexBetween";
 import { useDispatch } from "react-redux";
 import { setMode } from "state";
@@ -62,6 +63,9 @@ const Navbar = ({ user, isSidebarOpen, setIsSidebarOpen }) => {
             ) : (
               <LightModeOutlined sx={{ fontSize: "25px" }} />
             )}
+          </IconButton>
+          <IconButton>
+            <TranslateIcon sx={{ fontSize: "25px" }} />
           </IconButton>
           <IconButton>
             <SettingsOutlined sx={{ fontSize: "25px" }} />

@@ -36,6 +36,7 @@ import VideoChatIcon from "@mui/icons-material/VideoChat";
 import SummarizeIcon from "@mui/icons-material/Summarize";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
+import ForumIcon from "@mui/icons-material/Forum";
 import FlexBetween from "./FlexBetween";
 import profileImage from "assets/profile.png";
 import PsychologyIcon from "@mui/icons-material/Psychology";
@@ -71,8 +72,12 @@ const navItems = [
     icon: <BorderColorIcon />,
   },
   {
-    text: "Nlp",
+    text: "NLP",
     icon: <PsychologyIcon />,
+  },
+  {
+    text: "Assistant",
+    icon: <ForumIcon />,
   },
   {
     text: "Profile",
